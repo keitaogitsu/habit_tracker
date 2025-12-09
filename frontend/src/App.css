@@ -1,0 +1,339 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.App {
+  text-align: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+}
+
+.App-header {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  color: white;
+}
+
+h1 {
+  margin-bottom: 30px;
+  font-size: 2.5em;
+}
+
+.error {
+  background-color: #ff6b6b;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.habit-form {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.habit-input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.habit-textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+  min-height: 80px;
+  resize: vertical;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.habit-button {
+  background-color: #667eea;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.habit-button:hover {
+  background-color: #5568d3;
+}
+
+.habits-list {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: #333;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.habits-list h2 {
+  color: #667eea;
+  margin-bottom: 20px;
+}
+
+.habits-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.habit-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+}
+
+.habit-item h3 {
+  margin: 0 0 5px 0;
+  color: #333;
+}
+
+.habit-item p {
+  margin: 5px 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.habit-item small {
+  color: #999;
+  font-size: 12px;
+}
+
+.delete-button {
+  background-color: #ff6b6b;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.delete-button:hover {
+  background-color: #ee5a5a;
+}
+
+/* ガントチャート風のスタイル */
+.gantt-chart {
+  overflow-x: auto;
+  width: 100%;
+}
+
+.gantt-header {
+  display: flex;
+  border-bottom: 2px solid #667eea;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  min-width: 1200px;
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 2;
+}
+
+.gantt-habit-header {
+  width: 180px;
+  flex-shrink: 0;
+  text-align: left;
+  padding: 0 10px;
+  position: sticky;
+  left: 0;
+  background: white;
+  z-index: 3;
+}
+
+.gantt-dates {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 4px;
+}
+
+.gantt-month-row,
+.gantt-day-row {
+  display: flex;
+  gap: 2px;
+  font-size: 12px;
+}
+
+.gantt-month-cell,
+.gantt-date-header {
+  width: 50px;
+  text-align: center;
+  font-size: 12px;
+  color: #666;
+  line-height: 1.2;
+  box-sizing: border-box;
+  border: 1px solid transparent; /* セルと同じボーダー幅で横幅を揃える */
+}
+
+.gantt-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  min-width: 1200px;
+  position: relative;
+}
+
+.gantt-habit-name {
+  width: 180px;
+  flex-shrink: 0;
+  padding: 10px;
+  text-align: left;
+  position: sticky;
+  left: 0;
+  background: white;
+  z-index: 1;
+  box-shadow: 4px 0 6px -4px rgba(0, 0, 0, 0.15);
+  padding-bottom: 28px; /* 下部にボタン分の余白 */
+}
+
+.habit-title {
+  font-weight: bold;
+  color: #333;
+}
+
+.habit-actions {
+  position: absolute;
+  right: 10px;
+  bottom: 8px;
+  display: flex;
+  gap: 4px;
+}
+
+.habit-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.habit-content {
+  font-size: 12px;
+  color: #666;
+  margin-top: 4px;
+}
+
+.gantt-cells {
+  display: flex;
+  flex: 1;
+  gap: 2px;
+}
+
+.gantt-cell {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  background-color: #f0f0f0;
+  box-sizing: border-box;
+}
+
+.gantt-cell:hover {
+  border-color: #667eea;
+  transform: scale(1.1);
+  z-index: 1;
+  position: relative;
+}
+
+.gantt-cell.done {
+  background-color: #667eea;
+  border-color: #5568d3;
+}
+
+.gantt-cell.today {
+  border: 2px solid #ff6b6b;
+  box-shadow: 0 0 4px rgba(255, 107, 107, 0.5);
+}
+
+.gantt-cell.today.done {
+  background-color: #5568d3;
+  border-color: #ff6b6b;
+}
+
+.action-button-small {
+  padding: 3px 6px;
+  font-size: 8px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.edit-button-small {
+  background-color: #6c757d;
+  color: white;
+}
+
+.edit-button-small:hover {
+  background-color: #5a6268;
+}
+
+.delete-button-small {
+  padding: 3px 6px;
+  font-size: 8px;
+}
