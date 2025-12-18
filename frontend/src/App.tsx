@@ -1,7 +1,8 @@
-import { useEffect, useState, FormEvent, ChangeEvent } from 'react';
+import { useEffect, useState, useMemo, FormEvent, ChangeEvent } from 'react';
 import axios from 'axios';
 import './App.css';
 import { habitsAPI, habitLogsAPI, ping, Habit, HabitLog } from './api';
+import { formatDateLocal } from './dateUtils';
 
 const App = (): JSX.Element => {
   const [habits, setHabits] = useState<Habit[]>([]);
@@ -17,6 +18,8 @@ const App = (): JSX.Element => {
   const [isSaving, setIsSaving] = useState(false);
   const [isStatsOpen, setIsStatsOpen] = useState(false);
   const [expandedHabits, setExpandedHabits] = useState<Set<number>>(new Set());
+
+  const todayStr = useMemo(() => formatDateLocal(new Date()), []);
 
   const getErrorMessage = (err: unknown): string => {
     if (axios.isAxiosError(err)) {
@@ -130,13 +133,13 @@ const App = (): JSX.Element => {
 
   // 特定の習慣と日付のログを取得
   const getLogForHabitAndDate = (habitId: number, date: Date): HabitLog | undefined => {
-    const dateStr = date.toISOString().split('T')[0];
+    const dateStr = formatDateLocal(date);
     return habitLogs.find((log: HabitLog) => log.habit === habitId && log.date === dateStr);
   };
 
   // セルクリック時の処理（ログの追加/更新/削除）
   const handleCellClick = async (habitId: number, date: Date) => {
-    const dateStr = date.toISOString().split('T')[0];
+    const dateStr = formatDateLocal(date);
     const existingLog = getLogForHabitAndDate(habitId, date);
 
     try {
