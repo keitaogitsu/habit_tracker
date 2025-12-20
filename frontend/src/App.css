@@ -14,13 +14,16 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  min-height: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+  color: white;
+  /* max-width: 1200px; */
+  margin: 0 auto;
+  padding: 5px;
   color: white;
 }
 
@@ -55,13 +58,6 @@
       (var(--gantt-days) - 1) * var(--gantt-cell-gap)
   );
   --gantt-total-width: calc(var(--gantt-habit-col) + var(--gantt-dates-width));
-}
-
-.App-header {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  color: white;
 }
 
 h1 {
@@ -123,6 +119,21 @@ h1 {
 
 .habit-button:hover {
   background-color: #5568d3;
+}
+
+.cancel-button {
+  background-color: #b69adf;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cancel-button:hover {
+background-color: #6b76b7;
 }
 
 .secondary-button {
@@ -389,6 +400,7 @@ h1 {
 
 .habit-content.clamped {
   display: -webkit-box;
+  line-clamp: 2;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
